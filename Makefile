@@ -1,11 +1,22 @@
+ARCHIVE = libftprintf.a
 GCC = gcc -c -Wall -Wextra -Werror
-NAME = printf.a
 
 MANDATORY = ./*.c
 LIBFT = ./libft/*
-BONUS =
+TESTER = ./Tester_printf/
+OBJS = $(MANDATORY:.c=.o)
 
+all: $(ARCHIVE)
 
-all: $(NAME)
+$(ARCHIVE) : $(OBJS)
+	ar -rcs $(ARCHIVE) $(OBJS)
 
-$(NAME) :
+$(OBJS) : $(MANDATORY)
+	$(GCC) $(MANDATORY)
+
+clean :
+	rm -f $(OBJS)
+fclean :
+	rm -f $(ARCHIVE)
+
+re: fclean all

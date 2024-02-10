@@ -6,28 +6,26 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 19:54:30 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/09 20:57:45 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/10 20:25:30 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 
-int type_size(t_list argc, char type)
+ #include "ft_printf.h"
+
+int type_size(va_list argc, char type)
 {
-	int	i;
-
-	i = 0;
 	if (type == 'c')
-		return (i + print_char(argc));
+		return (print_char(va_arg(argc, int)));
 	else if (type == 's')
-		return (i + print_string(argc));
-	else if (type == 'p')
-		return (i + print_ptr(argc));
-	else if (type == 'd' || type == 'i')
-		return (i + print_number(argc));
-	else if (type == 'u')
-		return (i + print_u(argc));
-	else if (type == 'x' || type == 'X')
-		return (i + print_number(argc));
+	 	return (print_string(va_arg(argc, char *)));
+//	else if (type == 'p')
+//	 	return (print_ptr(argc));
+	else if (type == 'd' || type == 'i' || type == 'u')
+		return (print_number(va_arg(argc, int)));
+	else if (type == 'x')
+	 	return (print_generic_number(va_arg(argc, int), "0123456789abcdef"));
+	/else if (type == 'X')
+	 	return (print_generic_number(va_arg(argc, int), "0123456789ABCDEF"));
 	return (1);
 }

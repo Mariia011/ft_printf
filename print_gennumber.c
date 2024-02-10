@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   print_gennumber.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 16:49:30 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/10 20:20:13 by marikhac         ###   ########.fr       */
+/*   Created: 2024/02/10 17:41:50 by marikhac          #+#    #+#             */
+/*   Updated: 2024/02/10 19:40:31 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+//     "0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F"
+
+int	print_generic_number(unsigned int n, char const *base)
 {
-	va_list	argc;
-	int		i;
+	size_t	base_len;
 
-	i = 0;
-	va_start(argc, str);
-	while (*str)
-	{
-		if (*str == '%')
-		{
-			i += type_size(argc, *(++str));
-		}
-		else
-			i += print_char(*str);
-		str++;
-	}
-	va_end(argc);
-	return (i);
+	base_len = ft_strlen(base);
+	if (n < base_len)
+		return (print_char(base[n]));
+	return (print_generic_number(n / base_len, base) + print_generic_number(n % base_len, base));
 }
-
-// int main()
-// {
-// 	ft_printf("Hello, I'm %d years old", 54);
-// 	return 1;
-// }
