@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:49:30 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/10 20:20:13 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/12 20:18:04 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			i += type_size(argc, *(++str));
+			if (!(*str))
+				break ;
 		}
 		else
 			i += print_char(*str);
@@ -32,9 +34,11 @@ int	ft_printf(const char *str, ...)
 	va_end(argc);
 	return (i);
 }
-
 // int main()
 // {
-// 	ft_printf("Hello, I'm %d years old", 54);
-// 	return 1;
+// 	ft_printf("U : sdiuxX%");
+// 	printf("\n");
+// 	printf("STD : sdiuxX%");
+// 	printf("\n");
+// 	return (1);
 // }

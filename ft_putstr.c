@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_number.c                                     :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 17:09:32 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/12 20:19:03 by marikhac         ###   ########.fr       */
+/*   Created: 2024/02/12 16:29:56 by marikhac          #+#    #+#             */
+/*   Updated: 2024/02/12 20:18:09 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_number(int n)
+int	ft_putstr(char const *str)
 {
-	if (n < 0)
-		return (print_char('-') + print_generic_number(-n, "0123456789"));
-	return (print_generic_number(n, "0123456789"));
+	if (!str)
+		return (0);
+	return (write(1, str, ft_strlen(str)));
 }

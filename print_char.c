@@ -6,13 +6,13 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 21:08:00 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/10 17:26:57 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/12 20:18:13 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_char(char c)
+int	print_char(char c)
 {
 	return (write(1, &c, 1));
 }
