@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:49:30 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/12 20:18:04 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:10:42 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,3 @@ int	ft_printf(const char *str, ...)
 	va_end(argc);
 	return (i);
 }
-// int main()
-// {
-// 	ft_printf("U : sdiuxX%");
-// 	printf("\n");
-// 	printf("STD : sdiuxX%");
-// 	printf("\n");
-// 	return (1);
-// }

@@ -1,4 +1,4 @@
-ARCHIVE = libftprintf.a
+NAME = libftprintf.a
 GCC = gcc -c -Wall -Wextra -Werror
 
 
@@ -7,16 +7,16 @@ LIBFTPATH = ./libft/
 TESTER = ./Tester_printf/
 OBJS = $(MANDATORY:.c=.o)
 
-ARCHIVE = libftprintf.a
+NAME = libftprintf.a
 MANDATORY = ./*.c
 LIBFT_OBJS = ./libft/*.o
 LIBFT_C = ./libft/*.c
 OBJS = $(MANDATORY:.c=.o)
 
-all: $(ARCHIVE)
+all: $(NAME)
 
-$(ARCHIVE) : $(LIBFT_OBJS) $(OBJS)
-	ar -rcs $(ARCHIVE) $(OBJS) $(LIBFT_OBJS)
+$(NAME) : $(LIBFT_OBJS) $(OBJS)
+	ar -rcs $(NAME) $(OBJS) $(LIBFT_OBJS)
 
 $(OBJS) : $(MANDATORY)
 	$(GCC) $(MANDATORY)
@@ -29,7 +29,7 @@ clean :
 	rm -f $(OBJS)
 fclean : clean
 	make -C $(LIBFTPATH) fclean
-	rm -f $(ARCHIVE)
+	rm -f $(NAME)
 
 
 re: fclean all

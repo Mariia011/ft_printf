@@ -6,22 +6,18 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:07:53 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/12 20:18:20 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/26 13:55:51 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	print_ptr(size_t const nbr, char const *const base)
+int	print_ptr(size_t const nbr, char const *const base, size_t base_len)
 {
-	if (nbr < 16)
+	if (nbr < base_len)
 	{
 		return (print_char(base[nbr]));
 	}
-	return (print_ptr(nbr / 16, base) + print_ptr(nbr % 16, base));
-}
-
-int	print_pointer(size_t const nbr, char const *const base)
-{
-	return (ft_putstr("0x") + print_ptr(nbr, base));
+	return (print_ptr(nbr / base_len, base, base_len) + print_ptr(nbr
+			% base_len, base, base_len));
 }
